@@ -3,47 +3,30 @@ import RPi.GPIO as GPIO
 from hx711 import HX711
 import time
 
-GPIO.cleanup()
+#GPIO.cleanup()
 
-Dout_L = 14
-Sck_L = 4 
-Dout_H = 3
-Sck_H = 2
+
 GPIO.setmode(GPIO.BCM)
 
 
-GPIO.setup(4, GPIO.OUT)
-GPIO.setup(14, GPIO.IN)
-GPIO.setup(2, GPIO.OUT)``
-GPIO.setup(3, GPIO.IN)
-
 try:
-    
+    #HX711_L
     hx711 = HX711(
-        dout_pin=Dout_L,
-        pd_sck_pin=Sck_L,
+        dout_pin=6,
+        pd_sck_pin=5,
         channel='A',
         gain=64
     )
-
+    #HX711_H
     hx711_2 = HX711(
-        dout_pin=3,
-        pd_sck_pin=2,
+        dout_pin=24,
+        pd_sck_pin=23,
         channel='A',
         gain=64
     )
 
     hx711.reset()  # Reset the HX711
     hx711_2.reset()  # Reset the HX711
-    
-    if not hx711.is_ready():
-        print("error for 1")
-
-    if not hx711_2.is_ready():
-        print("error for 2")
-
-
-    
     
     while True:
 
