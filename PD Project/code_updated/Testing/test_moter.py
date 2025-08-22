@@ -2,8 +2,8 @@ import RPi.GPIO as GPIO
 import time
 
 GPIO.cleanup()
-IN1 = 5 #Forward M
-IN2 = 6 #Reverse M
+IN1 = 27 #Forward M
+IN2 = 22 #Reverse M
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(IN1, GPIO.OUT)
