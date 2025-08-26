@@ -7,7 +7,7 @@ import time
 
 
 GPIO.setmode(GPIO.BCM)
-
+print("initializing...")
 
 try:
     #HX711_L
@@ -32,13 +32,15 @@ try:
 
         reading = hx711._read()
         reading_2 = hx711_2._read()
-        print(f"1:{reading}")
-        print(f"2:{reading_2}")
+        print(f"L:{reading}")
+        print(f"H:{reading_2}")
         time.sleep(0.1)
 
 except KeyboardInterrupt:
     GPIO.cleanup()
     print("\nScript stopped.")
-    
-
+except Exception as e:
+    print(f'Error:{e}')
+finally:
+    print('end')
 
